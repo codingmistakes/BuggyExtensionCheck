@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<center><h3>Upload Profile Photo</h3></center>
+<br/>
+<form class="form-horizontal" id="form" name="form" action="/Upload"
+        enctype="multipart/form-data" method="post">
+    <div class="avatar-upload">
+        <div class="avatar-edit">
+            <input class="file-upload"
+                    type="file" accept="image/*"
+                    multiple onchange="uploadFiles('imageUpload');"
+                    id="imageUpload" name="imageUpload" />
+            <label for="imageUpload">
+                <i class="fas fa-camera"></i>
+            </label>
+        </div>
+        <div class="avatar-preview">
+            <i class="fas fa-user fa-7x" id="defaultprofilephoto"></i>
+            <img id="uploadedprofilephoto" style="display:none"/>
+        </div>
+    </div>
+</form>
+
+<div id="progress" class="progress">
+    <div id="bar" class="bar">
+    </div>
+    <div id="label" class="label">
+        0%
+    </div>
+</div>
+
+<div id="successtoast" name="successtoast" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; top: 20px; right: 20px;">
+    <div class="toast-header">
+        <i class="fas fa-bell"></i>
+        <span class="mr-auto" style="padding-left: 10px;">Action Completed</span>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        Your profile photo is uploaded successfully!
+    </div>
+</div>
+
+<div id="failuretoast" name="failuretoast" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; top: 20px; right: 20px;">
+    <div class="toast-header">
+        <i class="fas fa-bell"></i>
+        <span class="mr-auto" style="padding-left: 10px;">Action Failed</span>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        Failed to upload your profile photo!
+    </div>
+</div>
