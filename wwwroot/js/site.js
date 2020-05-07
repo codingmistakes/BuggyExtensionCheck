@@ -20,14 +20,14 @@ function uploadFiles(inputId) {
             type: "POST",
             success: function (data) {
                 stopUpdatingProgressIndicator();
-                $('#successtoast').toast({ delay: 5000 });
+                $('#successtoast').toast({ delay: 10000 });
                 $('#successtoast').toast('show');
                 $('#defaultprofilephoto').hide();
                 $('#uploadedprofilephoto').show();
                 $('#uploadedprofilephoto').attr("src", "/Upload/?filename=" + data);
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                $('#failuretoast').toast({ delay: 5000 });
+                $('#failuretoast').toast({ delay: 10000 });
                 $('#failuretoast').toast('show');
             }
         }
