@@ -53,7 +53,7 @@ namespace BuggyExtensionCheck.Controllers
                         await output.WriteAsync(buffer, 0, readBytes);
                         totalReadBytes += readBytes;
                         Startup.Progress = (int)((float)totalReadBytes / (float)file.Length * 100.0);
-                        await Task.Delay(500); // It is only to make the process slower
+                        await Task.Delay(1000); // It is only to make the process slower
                     }
                 }
             }
